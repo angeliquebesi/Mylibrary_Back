@@ -1,15 +1,31 @@
 const express = require('express');
+const cors = require('cors');
+// connection à la database
+const connection = require('./db_config');
 
 const app = express();
+const { setupApp } = require('./routes');
 
-const items = [
-  { id: 1, name: 'item1' },
-  { id: 2, name: 'item2' },
-];
+app.use(cors());
+app.use(express.json());
 
-app.get('/myroute', (req, res) => {
-  console.log('handling /myroute');
-  res.send(items);
+setupApp(app);
+
+connection.connect((err) => {
+  if (err) {
+    console.error(`error connecting:${err.stack}`);
+  } else {
+    console.log(`connected to database with threadId: ${connection.threadId}`);
+  }
 });
 
-app.listen(5000, () => console.log('server listening on port 5000'));
+const port = process.env.PORT || 5000;
+
+app.use((err, req, res) => {
+  res.status(err.status || 500);
+  res.json({
+    status: err.status || 500,
+    message: err.message,
+  });
+});
+app.listen(port, () => console.log(`server listening on port ${port}`));
