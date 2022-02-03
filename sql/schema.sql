@@ -32,7 +32,9 @@ Cherry on the cake ? Allan, obsessed with his work, will abandon the young bride
 If the latter is completely hermetic and at the height of his antipathy, Kaya, she, may want to pierce the shadows that surround her, and the attraction may ultimately outweigh the aversion.
 Because don't we say that darkness sometimes attracts more than light?", 'https://www.babelio.com/couv/CVT_Socrates-shadow_9856.jpg');
 
-INSERT INTO statut (nom) VALUES ('Unread'),('Reading'),('Finished');
-
 INSERT INTO categories (category) VALUES ('Fantasy'), ('Thriller'), ('Polar'), ('Contemporary'), ('Romance');
 
+ALTER TABLE books ADD statut VARCHAR(100);
+
+UPDATE books
+SET statut = 'Unread';
