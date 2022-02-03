@@ -17,7 +17,11 @@
   },
   "homepage": "https://github.com/ComicScrip/express-minimal-template#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "cors": "^2.8.5",
+    "dotenv": "^15.0.1",
+    "express": "^4.17.1",
+    "joi": "^17.6.0",
+    "mysql2": "^2.3.3"
   },
   "devDependencies": {
     "eslint": "^7.14.0",
