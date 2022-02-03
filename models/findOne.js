@@ -1,7 +1,6 @@
 const connection = require('../db_config');
 
 const findOne = (id) => {
-  console.log(id);
   return connection
     .promise()
     .query(
