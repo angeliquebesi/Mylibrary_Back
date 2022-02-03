@@ -21,11 +21,4 @@ connection.connect((err) => {
 
 const port = process.env.PORT || 5000;
 
-app.use((err, req, res) => {
-  res.status(err.status || 500);
-  res.json({
-    status: err.status || 500,
-    message: err.message,
-  });
-});
 app.listen(port, () => console.log(`server listening on port ${port}`));
