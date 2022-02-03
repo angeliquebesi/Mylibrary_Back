@@ -5,7 +5,7 @@ const findOne = (id) => {
   return connection
     .promise()
     .query(
-      'SELECT b.id AS bookid, b.author, b.publishdate, b.summary, b.couverture, b.categories_id FROM books AS b INNER JOIN categories AS c ON b.categories_id = c.id WHERE b.id = ? ',
+      'SELECT * FROM books INNER JOIN categories AS c ON books.categories_id = c.id WHERE bookid = ?',
       [id]
     )
     .then((results) => {
