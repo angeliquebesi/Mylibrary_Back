@@ -36,7 +36,7 @@ Cherry on the cake ? Allan, obsessed with his work, will abandon the young bride
 If the latter is completely hermetic and at the height of his antipathy, Kaya, she, may want to pierce the shadows that surround her, and the attraction may ultimately outweigh the aversion.
 Because don't we say that darkness sometimes attracts more than light?", 'https://www.babelio.com/couv/CVT_Socrates-shadow_9856.jpg',5);
 
-INSERT INTO categories (category) VALUES ('Fantasy'), ('Thriller'), ('Polar'), ('Contemporary'), ('Romance');
+INSERT INTO categories (category) VALUES ('Fantasy'), ('Thriller'), ('Polar'), ('Contemporary'), ('Romance'), ('Roman');
 
 ALTER TABLE books ADD statut VARCHAR(100);
 ALTER TABLE categories MODIFY categories_id INT;
@@ -49,4 +49,7 @@ ALTER TABLE books
 ADD FOREIGN KEY (categories_id) REFERENCES categories(id);
 
 ALTER TABLE categories CHANGE id categoryId INT;
+
+ALTER TABLE books
+ALTER categories_id SET DEFAULT 6;
 
