@@ -2,7 +2,7 @@ const router = require('express').Router();
 const findAll = require('../models/findAll');
 const findOne = require('../models/findOne');
 
-router.get('/', (res) => {
+router.get('/', (req, res) => {
   findAll()
     .then((result) => {
       res.json(result);
