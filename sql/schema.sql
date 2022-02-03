@@ -43,7 +43,7 @@ ALTER TABLE categories MODIFY categories_id INT;
 
 
 UPDATE books
-SET categories_id = 1;
+SET statut = 'Unread';
 
 ALTER TABLE books
 ADD FOREIGN KEY (categories_id) REFERENCES categories(id);
