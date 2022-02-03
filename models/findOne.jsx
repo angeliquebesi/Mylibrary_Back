@@ -1,8 +1,8 @@
 const connection = require('../db_config');
 
-const findAll = () => {
+const findOne = (id) => {
   const query =
-    'SELECT b.id AS bookid, b.author, b.publishdate, b.summary, b.couverture, b.categories_id FROM books AS b INNER JOIN categories AS c ON b.categories_id = c.id ORDER BY bookid';
+    'SELECT * FROM books INNER JOIN categories ON books.categories_id = categories.id WHERE books.id= ?', [id];
   const sqlValues = [];
   return connection
     .promise()
@@ -14,4 +14,4 @@ const findAll = () => {
     .catch((err) => console.error(err));
 };
 
-module.exports = findAll;
+module.exports = findOne;
